@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Русская рулетка</title>
+</head>
+<body>
+
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+pre {
+  font-family:     "Courier New"
+                    Courier
+                    monospace;
+}
+
+</style>
+</head>
+<body>
+
+
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Home')">Home</button>
+  <button class="tablinks" onclick="openTab(event, 'aboutMe')">About me</button>
+  <button class="tablinks" onclick="openTab(event, 'roulette')">Russian Roullette</button>
+</div>
+
+<div id="Home" class="tabcontent">
+  <h3>Whats Russian Roullette (Русская рулетка)</h3>
+  <p>Russian roulette is a game of chance that has become infamous for its deadly consequences. The game involves loading a single bullet into a revolver, spinning the cylinder, and then pulling the trigger while pointing the gun at one's own head. The player takes their chances with fate, risking their life on the hope that the bullet will not be in the chamber when the trigger is pulled.</p>
+</br>
+<p>The origins of Russian roulette are unclear, but it is believed to have originated in Russia during the late 19th century. The game was often played by soldiers as a way to pass the time and relieve the boredom of war. It soon became popular among the civilian population as well, and it was often played in bars and other social settings.</p>
+</br>
+<p>The danger and thrill of the game have made it a subject of fascination in popular culture. It has been depicted in films, books, and music, and has been used as a metaphor for risk-taking and recklessness. Some have even claimed that the game is a metaphor for the human condition, with life itself being a game of chance in which we take risks and make choices that can have deadly consequences.</p>
+</br>
+<p>Despite its popularity, Russian roulette is an extremely dangerous game that has claimed many lives over the years. The risk of death or serious injury is very real, and those who play the game are taking a reckless and unnecessary risk with their lives. In the end, the allure of the game is outweighed by the tragic consequences that often result from playing it.</p>
+</div>
+
+<div id="aboutMe" class="tabcontent">
+  <h3>whoami</h3>
+  <p>As an avid Linux user and web developer, I have a strong interest in the world of open-source software and web development. I have a solid understanding of Linux-based tools and software packages, and I am comfortable using the command line to navigate and execute tasks within the operating system.</p> 
+  </br>
+<p>My experience with web development frameworks such as Django, Ruby on Rails, and Node.js has allowed me to build powerful and scalable web applications that are optimized for performance and user experience. I also have experience working with popular web technologies like HTML, CSS, and JavaScript, which allows me to create visually appealing and interactive web pages that engage and delight users.</p>
+</br>
+<p>What I love most about Linux and web development is the sense of curiosity and exploration that comes with working in this field. There is always something new to learn, whether it's a new tool, programming language, or development framework. I am constantly seeking out new challenges and opportunities to expand my knowledge and skill set, and I am excited to see where my journey in this field will take me in the future.</p>
+</br>
+<p>Overall, I am passionate about Linux and web development because it allows me to combine my technical expertise with my love of problem-solving and creativity. I look forward to continuing to learn and grow as a developer and contributing to the vibrant and innovative community of developers who share my passion for this exciting field.</p>
+</div>
+
+<div id="roulette" class="tabcontent">
+<h3>RUSSIAN ROULLETTE</h3>
+<button onclick="start()" class="button">shoot yourself</button>
+<p id="strzaly"></p>
+<button onclick="showCode()">Click to show / hide source code</button>
+<pre id="code">
+</pre>
+</div>
+
+<script>
+
+
+
+number2 = 1;
+  function showCode() {
+    number2++;
+    if(number2 % 2==0){
+   
+   document.getElementById("code").innerHTML = 
+    `
+i = 0;
+x = 0;
+
+
+function start() {
+
+  i++;
+  if (i < 2) {
+    rndInt = Math.floor(Math.random() * 6) + 1;
+  }
+  
+  if (rndInt == 1 || i == rndInt) {
+    console.log("DEAD")
+    i = 0
+  }
+}
+
+// thats basic logic behind it, I managed to connect database up to this using firebase
+    `
+}
+else {
+   
+   document.getElementById("code").innerHTML = "";
+}
+    
+  }
+  openTab(event, 'Home')
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+
+
+<link rel="stylesheet" href="style.css">
+<div class="clock-container">
+  <div class="clock">
+    <span class="time"></span>
+  </div>
+</div>
+    <h1 id="time"></h1>
+
+
+
+
+<div class="ticker-wrap">
+<div class="ticker">
+  <div class="ticker__item" id="Tickerdeaths"></div>
+    <div class="ticker__item"></div>
+  <div class="ticker__item" id="Tickershots"></div>
+</div>
+</div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>
